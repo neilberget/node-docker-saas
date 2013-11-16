@@ -1,4 +1,16 @@
 h1 SAAS
 
+a(href='/images/new') Add Dockerfile
 form(action="/start", method="post")
   input(type="submit", value="Spin it up")
+
+h2 Dockerfiles
+ul
+  each dockerfile in dockerfiles
+    li
+      = dockerfile.tag
+      | &nbsp;
+      a(href="/images/" + dockerfile._id + "/build") build
+      | &nbsp;
+      a(href="/images/" + dockerfile._id + "/delete") delete
+
