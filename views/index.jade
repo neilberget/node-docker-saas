@@ -1,16 +1,27 @@
-h1 SAAS
+html
+  head
+    link(rel='stylesheet', href='/css/bootstrap.min.css', type='text/css')
 
-a(href='/images/new') Add Dockerfile
-form(action="/start", method="post")
-  input(type="submit", value="Spin it up")
+  body
+    .container
+      h1 SAAS
 
-h2 Dockerfiles
-ul
-  each dockerfile in dockerfiles
-    li
-      = dockerfile.tag
-      | &nbsp;
-      a(href="/images/" + dockerfile._id + "/build") build
-      | &nbsp;
-      a(href="/images/" + dockerfile._id + "/delete") delete
+      a(href='/images/new') Add Dockerfile
+
+      if info.length
+        .alert.alert-success 
+          pre
+            = info
+
+      h2 Dockerfiles
+      ul
+        each dockerfile in dockerfiles
+          li
+            = dockerfile.tag
+            | &nbsp;
+            a(href="/images/" + dockerfile._id + "/build") build
+            | &nbsp;
+            a(href="/images/" + dockerfile._id + "/start") start
+            | &nbsp;
+            a(href="/images/" + dockerfile._id + "/delete") delete
 

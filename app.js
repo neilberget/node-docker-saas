@@ -23,6 +23,7 @@ app.get('/images/new', routes.images.new);
 app.post('/images', routes.images.create);
 app.get('/images/:id/delete', routes.images.delete);
 app.get('/images/:id/build', routes.images.build);
+app.get('/images/:id/start', routes.images.start);
 
 app.listen(3000);
 console.log('Listening to port 3000');
